@@ -1,3 +1,11 @@
+/* global chrome */
+
+const fbMessengerURL = "https://www.messenger.com/*";
+const plainURL = "https://www.messenger.com/"
+
+const USERNAME_KEY = "LIST OF PEOPLE";
+const TITLE_KEY = "LIST OF TITLES";
+
 class Person {
    constructor(title, username) {
        this.title = title;
@@ -30,7 +38,7 @@ class Person {
    }
 }
 
-function loadPeople(callback) {
+export function loadPeople(callback) {
 
     console.log("Util: Loading people from persistence");
     let allUsernames;
@@ -76,7 +84,7 @@ function loadPeople(callback) {
 }
 
 
-function savePeople(titles, usernames, callback) {
+export function savePeople(titles, usernames, callback) {
     console.log("Util: Persisting people")
     if (titles.length < 1 || usernames.length < 1) {
         console.log("Empty titles/usernames... Deleting persistent storage.");
@@ -97,7 +105,7 @@ function savePeople(titles, usernames, callback) {
     });
 }
 
-function getNameFromURL(url) {
+export function getNameFromURL(url) {
     // https://www.messenger.com/t/revolushien
     var newString = url.replace(/https:\/\/www\.messenger\.com\/t\//, "");
     if (newString === "https://www.messenger.com/") {

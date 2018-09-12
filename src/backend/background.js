@@ -1,7 +1,12 @@
+/* global chrome */
 // import {Person} from './util.js';
 
-const fbMessengerURL = "https://www.messenger.com/*";
-const plainURL = "https://www.messenger.com/"
+import { loadPeople } from './util.js'
+import { getNameFromURL } from './util.js'
+import { fbMessengerURL } from './util.js'
+import { plainURL } from './util.js'
+
+
 const USERNAME_KEY = "LIST OF PEOPLE";
 const TITLE_KEY = "LIST OF TITLES";
 
@@ -10,6 +15,7 @@ let currentSuggestContent;
 let desiredURL = "DEFAULT FAKE";
 let myPeople; // Let my people go!
 
+console.log("HELLO WORLD");
 
 loadPeople(function(people) {
     console.log("Found this many people =" + people.length);

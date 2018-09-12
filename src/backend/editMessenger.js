@@ -1,3 +1,5 @@
+/* global chrome */
+
 try {
     // const testURL = "https://www.messenger.com/t/nathan.henderson.7739";
     const loadWaitMillis = 800;

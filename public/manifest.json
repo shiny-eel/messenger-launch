@@ -31,14 +31,14 @@
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
-      "js": ["backend/util.js","messengerParasite.js"],
+      "js": ["static/js/content.js"],
       "run_at": "document_idle"
     }
   ],
 
   "background": {
     "persistent": false,
-    "scripts": ["backend/util.js","backend/background.js"]
+    "scripts": ["static/js/background.js"]
   }
 
 }
