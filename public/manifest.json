@@ -23,8 +23,22 @@
             "24": "resources/mailbox_colour.png",
             "32": "resources/mailbox_colour.png"
           },
-          "default_title": "mail - Messenger Launcher"
-    }
+          "default_title": "mail - Messenger Launcher",
+      "default_popup": "index.html",
+      "default_title": "Open the popup"
+    },
 
+  "content_scripts": [
+    {
+      "matches": ["*://*.messenger.com/*"],
+      "js": ["backend/util.js","messengerParasite.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "persistent": false,
+    "scripts": ["backend/util.js","backend/background.js"]
+  }
 
 }
