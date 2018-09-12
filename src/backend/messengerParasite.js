@@ -1,7 +1,13 @@
+/* global chrome */
+
+import { loadPeople } from './util.js'
+import { savePeople } from './util.js'
+import { getNameFromURL } from './util.js'
+
 "use strict";
-const USERNAME_KEY = "LIST OF PEOPLE";
-const TITLE_KEY = "LIST OF TITLES";
-const maxSaved = 30;
+// const USERNAME_KEY = "LIST OF PEOPLE";
+// const TITLE_KEY = "LIST OF TITLES";
+// const maxSaved = 30;
 
 let currentUsernames = null;
 let currentTitles = [];

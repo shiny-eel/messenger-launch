@@ -5,10 +5,10 @@ import { loadPeople } from './util.js'
 import { getNameFromURL } from './util.js'
 import { fbMessengerURL } from './util.js'
 import { plainURL } from './util.js'
+import { Person} from "./util.js";
+// import {goToDesired} from "./editMessenger";
 
-
-const USERNAME_KEY = "LIST OF PEOPLE";
-const TITLE_KEY = "LIST OF TITLES";
+// "./messengerParasite.js";
 
 let currentSuggestText;
 let currentSuggestContent;
@@ -68,8 +68,8 @@ chrome.omnibox.onInputEntered.addListener(
 function executeMessengerLaunch(text) {
     goToMessengerTab(text, function(tab) {
         pinTab(tab, function(tabId) {
-            if (text != plainURL)
-                switchToPerson();
+            if (text !== plainURL)
+                switchToPerson(tabId);
             listenToMessengerPage(tabId);
         })
     })
@@ -112,9 +112,11 @@ function goToMessengerTab(text, callback) {
     });
 }
 
-function switchToPerson() {
-    chrome.tabs.executeScript({
-        file: "editMessenger.js"
+function switchToPerson(tabId) {
+    console.log("Switch to editMessenger.js script.");
+    // goToDesired(desiredURL);
+    chrome.tabs.executeScript(tabId, {
+        file: "static/js/editMessenger.js"
     });
 }
 
@@ -205,6 +207,7 @@ function queryPeople(text, callback) {
 }
 
 // Reply to the Messenger Parasite with the URL info
+console.log("Starting the url listener.");
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         // console.log(sender.tab ?

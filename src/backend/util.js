@@ -1,12 +1,12 @@
 /* global chrome */
 
-const fbMessengerURL = "https://www.messenger.com/*";
-const plainURL = "https://www.messenger.com/"
+export const fbMessengerURL = "https://www.messenger.com/*";
+export const plainURL = "https://www.messenger.com/"
 
-const USERNAME_KEY = "LIST OF PEOPLE";
-const TITLE_KEY = "LIST OF TITLES";
+export const USERNAME_KEY = "LIST OF PEOPLE";
+export const TITLE_KEY = "LIST OF TITLES";
 
-class Person {
+export class Person {
    constructor(title, username) {
        this.title = title;
        this.username = username;

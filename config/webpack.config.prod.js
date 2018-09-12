@@ -62,13 +62,20 @@ module.exports = {
           paths.appIndexJs
       ],
       content: [require.resolve('./polyfills'),
+          './src/backend/messengerParasite.js'
+
+      ],
+
+      util: [require.resolve('./polyfills'),
           './src/backend/util.js',
-          './src/backend/editMessenger.js'
+
+      ],
+      editMessenger: [require.resolve('./polyfills'),
+          './src/backend/editMessenger.js',
 
       ],
       background: [require.resolve('./polyfills'),
           './src/backend/background.js',
-          './src/backend/util.js'
       ]
   },
   output: {

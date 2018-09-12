@@ -1,39 +1,41 @@
 /* global chrome */
 
-try {
-    // const testURL = "https://www.messenger.com/t/nathan.henderson.7739";
-    const loadWaitMillis = 800;
-    // getDesiredURL(function(url) {
-    //     editThing(url);
-    // });
-    getDesiredURL(function(url) {
-        let maxScrolls = 5;
-        let scrollCount = 1;
-        if (!editThing(url)) {
+// export function goToDesired(desiredURL) {
+    try {
+        // const testURL = "https://www.messenger.com/t/nathan.henderson.7739";
+        const loadWaitMillis = 800;
+        // getDesiredURL(function(url) {
+        //     editThing(url);
+        // });
+         getDesiredURL(function (url) {
 
-            let intervals = setInterval(function() {
+            let maxScrolls = 5;
+            let scrollCount = 1;
+            if (!editThing(url)) {
 
-                if (!editThing(url) && scrollCount < maxScrolls) {
-                    console.log("Executing scroll down");
-                    scrollDown(scrollCount, function() {
-                        // setTimeout()
-                        scrollCount++;
-                    });
-                } else {
-                    console.log("Finished scrolling.");
-                    clearInterval(intervals);
-                }
+                let intervals = setInterval(function () {
 
-            }, loadWaitMillis);
-        }
-    });
-    console.log("End of editMessenger.js");
-} catch (err) {
-    console.log("Error: You might not be able to call the extension" +
-        " while in the messenger page multiple times.");
-    console.log(err);
-}
+                    if (!editThing(url) && scrollCount < maxScrolls) {
+                        console.log("Executing scroll down");
+                        scrollDown(scrollCount, function () {
+                            // setTimeout()
+                            scrollCount++;
+                        });
+                    } else {
+                        console.log("Finished scrolling.");
+                        clearInterval(intervals);
+                    }
 
+                }, loadWaitMillis);
+            }
+         });
+        console.log("End of editMessenger.js");
+    } catch (err) {
+        console.log("Error: You might not be able to call the extension" +
+            " while in the messenger page multiple times.");
+        console.log(err);
+    }
+// }
 
 
 function editThing(url) {
