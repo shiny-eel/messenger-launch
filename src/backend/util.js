@@ -6,6 +6,8 @@ export const plainURL = "https://www.messenger.com/"
 export const USERNAME_KEY = "LIST OF PEOPLE";
 export const TITLE_KEY = "LIST OF TITLES";
 
+export const editMessengerFilePath = "static/js/editMessenger.js";
+
 export class Person {
    constructor(title, username) {
        this.title = title;

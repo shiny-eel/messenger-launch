@@ -5,10 +5,9 @@ import { loadPeople } from './util.js'
 import { getNameFromURL } from './util.js'
 import { fbMessengerURL } from './util.js'
 import { plainURL } from './util.js'
+import { editMessengerFilePath } from './util.js'
 import { Person} from "./util.js";
-// import {goToDesired} from "./editMessenger";
 
-// "./messengerParasite.js";
 
 let currentSuggestText;
 let currentSuggestContent;
@@ -116,7 +115,7 @@ function switchToPerson(tabId) {
     console.log("Switch to editMessenger.js script.");
     // goToDesired(desiredURL);
     chrome.tabs.executeScript(tabId, {
-        file: "static/js/editMessenger.js"
+        file: editMessengerFilePath
     });
 }
 
