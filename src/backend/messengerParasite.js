@@ -3,6 +3,7 @@
 import { loadPeople } from './util.js'
 import { savePeople } from './util.js'
 import { getNameFromURL } from './util.js'
+import {fbMessengerURL} from "./util";
 
 "use strict";
 // const USERNAME_KEY = "LIST OF PEOPLE";
@@ -16,6 +17,11 @@ let currentPeople = [];
 // import loadPeople from 'contentsLoader'; // or './module'
 
 console.log("Messenger Parasite Active!");
+// // Ask the background.js script for the current url
+// chrome.runtime.sendMessage({
+//     greeting: "newTab"
+// });
+
 waitThenStart(beginScript);
 // waitThenStart(getConversations);
 // getConversations();
@@ -170,6 +176,62 @@ function getCurrentChatTitle() {
     }
     return realTitle;
 }
+
+// function checkThenPin() {
+//
+//     chrome.tabs.query({
+//         "url": fbMessengerURL
+//     }, function(tabs) {
+//         if (tabs.length = 1) { // Only messenger tab
+//             console.log("PINNING");
+//             var tabID = tabs[0].id;
+//             console.log("Tab ID =" + tabID);
+//             // Reference: https://developer.chrome.com/extensions/tabs#method-update
+//             chrome.tabs.update(tabID, {
+//                 "highlighted": true,
+//                 "active": true,
+//                 "pinned": true
+//             });
+//
+//         } else if (tabs.length = 2) { // tab needs to be removed
+//             console.log("Removing Tab")
+//             chrome.tabs.getCurrent(function(tab) {
+//                 chrome.tabs.remove(tab.id, function() { });
+//             });
+//         }
+//     });
+
+// function pinTab() {
+//
+//     chrome.tabs.query({
+//         "url": fbMessengerURL
+//     }, function(tabs) {
+//         if (tabs.length = 1) { // Only messenger tab
+//             var tabID = tabs[0].id;
+//             console.log("Tab ID =" + tabID);
+//             // Reference: https://developer.chrome.com/extensions/tabs#method-update
+//             chrome.tabs.update(tabID, {
+//                 "highlighted": true,
+//                 "active": true,
+//                 "pinned": true
+//             }, function(tab) {
+//                 // switchToPerson();
+//                 // pinTab(tab, listenToMessengerPage);
+//                 callback(tab);
+//             });
+//
+//         } else { // Messenger tab needs to be created
+//
+//             chrome.tabs.create({
+//                 url: text
+//             }, function(tab) {
+//                 // switchToPerson();
+//                 // pinTab(tab, listenToMessengerPage);
+//                 callback(tab);
+//             });
+//         }
+//     });
+// }
 
 // function beginScript() {
 //     getCurrentChatTitle(function(title) {

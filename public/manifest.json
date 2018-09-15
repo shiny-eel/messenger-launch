@@ -31,8 +31,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.messenger.com/*"],
-      "js": ["static/js/content.js"],
-      "run_at": "document_idle"
+      "js": ["static/js/parasite.js"],
+      "run_at": "document_start"
     }
   ],
 

@@ -111,7 +111,7 @@ export function getNameFromURL(url) {
     // https://www.messenger.com/t/revolushien
     var newString = url.replace(/https:\/\/www\.messenger\.com\/t\//, "");
     if (newString === "https://www.messenger.com/") {
-        console.log("No new person.");
+        // console.log("No new person.");
         return null;
     }
     // console.log("Person's username is: " + newString);
