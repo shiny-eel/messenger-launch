@@ -61,11 +61,14 @@ module.exports = {
       app: [require.resolve('./polyfills'),
           paths.appIndexJs
       ],
-      content: [require.resolve('./polyfills'),
+      parasite: [require.resolve('./polyfills'),
           './src/backend/messengerParasite.js'
 
       ],
+      tabManager: [require.resolve('./polyfills'),
+          './src/backend/tabManager.js'
 
+      ],
       util: [require.resolve('./polyfills'),
           './src/backend/util.js',
 
