@@ -29,7 +29,7 @@ listenToMessengerPage();
 const maxResults = 5;
 chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
 
-    console.log("New input is: " + text);
+    // console.log("New input is: " + text);
     currentSuggestText = text;
     queryPeople(text, function(results) {
         console.log(results);
@@ -85,12 +85,7 @@ function goToMessengerTab(text, callback) {
     chrome.tabs.query({
         "url": fbMessengerURL
     }, function(tabs) {
-        // if (tabs.length > 1) { // Too many tabs
-        //     let i;
-        //     for (i = 1; i<tabs.length;i++) {
-        //         chrome.tabs.remove(tabs[i].id);
-        //     }
-        // }
+
         if (tabs.length === 1) { // Already have 1 tab
             // var tabID = tabs[0].id;
             favouriteTabId = tabs[0].id;
@@ -107,7 +102,8 @@ function goToMessengerTab(text, callback) {
         } else if (tabs.length === 0) { // Messenger tab needs to be created
 
             chrome.tabs.create({
-                url: text
+                url: text,
+                pinned: true
             }, function(tab) {
                 favouriteTabId = tab.id;
                 callback(tab);
@@ -123,21 +119,6 @@ function switchToPerson(tabId) {
         file: editMessengerFilePath
     });
 }
-//
-// function pinTab(tab, callback) {
-//     chrome.tabs.update(tab.id, {
-//         "pinned": true
-//     }, callback(tab.id));
-// }
-//
-// function startListen() {
-//     chrome.tabs.query({
-//         "url": fbMessengerURL
-//     }, function(tabs) {
-//         if (tabs && tabs.length > 0)
-//             listenToMessengerPage();
-//     });
-// }
 
 // Create a listener to update the Messenger Parasite of URL changes
 // So the Parasite can add more people to its database
@@ -265,27 +246,7 @@ chrome.runtime.onMessage.addListener(
                 myPeople = people;
                 chrome.browserAction.setBadgeText({text: ""+people.length}); // Update extension badge
             });
-        } else if (request.greeting == "newTab") {
-            // console.log("New messenger tab found.");
-            // chrome.tabs.query({
-            //     "url": fbMessengerURL
-            // }, function(tabs) {
-            //     console.log("num tabs found, tab id: ", tabs.length, sender.tab.id);
-            //     if (tabs.length > 1) {
-            //         // Don't need new messenger tab
-            //         console.log("removing: "+ sender.tab.id +" | focusing: "+tabs[0].id);
-            //         chrome.tabs.remove(sender.tab.id);
-            //         // chrome.tabs.update(tabs[0].id, {
-            //         //     "highlighted": true,
-            //         //     "active": true,
-            //         //     "pinned": true
-            //         // });
-            //     } else if (tabs.length == 1) {
-            //         //
-            //     }
-            //     goToMessengerTab(sender.tab.url);
-            //
-            // });
+
         }
     });
 

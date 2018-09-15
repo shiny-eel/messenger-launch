@@ -25,29 +25,7 @@ function scrollToFind(url) {
     clickFind(1, url, clickFind, function() {
         console.log("Done.");
     })
-    // const loadWaitMillis = 400;
-    //
-    // let maxScrolls = 6;
-    // let scrollCount = 1;
-    // let i;
-    // if (!editThing(url)) {
-    //
-    //     // let intervals = setInterval(function () {
-    //     for (i = 0; i < maxScrolls; i++) {
-    //         if (!editThing(url) && scrollCount < maxScrolls) {
-    //             console.log("Executing scroll down");
-    //             loadMorePeople(function () {
-    //                 scrollCount++;
-    //             });
-    //
-    //         } else {
-    //             console.log("Finished scrolling.");
-    //             break;
-    //             // clearInterval(intervals);
-    //         }
-    //     }
-    //     // }, loadWaitMillis);
-    // }
+
 }
 
 function clickFind(iter, url, selfcall, callback) {
@@ -100,48 +78,6 @@ function loadMorePeople(callback) {
     callback();
     return;
 }
-    // let waitToClick = 50;
-    // let timeout = 5;
-    // let iters = 1;
-    // let headings = document.evaluate("//a[contains(., 'Show older')]", document, null, XPathResult.ANY_TYPE, null );
-    // let showOlderButton = headings.iterateNext();
-    // showOlderButton.click();
-
-    // let clicktervals = setInterval(function () {
-        // } else {
-        //     iters++;
-        //     console.log("Still trying", iters);
-        //
-        //     if (iters > timeout) {
-        //         // clearInterval(clicktervals);
-        //         callback();
-        //         return;
-        //     }
-            // Keep trying
-        // }
-
-    // }, waitToClick);
-    // let lista = document.querySelectorAll("[placeholder=\"Search Messenger\"]");
-    // let searchBar = lista[0];
-    // lista.value("TEST");
-    // searchBar.setRangeText("TEST");
-    //
-    // var clickEvent = new MouseEvent("click", {
-    //     "view": window,
-    //     "bubbles": true,
-    //     "cancelable": false
-    // });
-
-    // searchBar.dispatchEvent(clickEvent);
-    // searchBar.click();
-    // searchBar.value = "NEW TEST";
-    // var e = new Event("keypress");
-    // e.which = 13; //enter keycode
-    // e.keyCode = 13;
-   // searchBar.dispatchEvent(e);
-
-// }
-
 
 function scrollDown(amount, callback) {
     const scrollPanelId = "js_8";
