@@ -39,7 +39,7 @@ function addUpdateListener() {
 }
 
 function waitThenStart(callback) {
-    if (document.readyState != 'complete') {
+    if (document.readyState !== 'complete') {
         window.addEventListener('load', callback);
     } else {
         if (typeof callback === "function") {
