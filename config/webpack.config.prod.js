@@ -62,23 +62,23 @@ module.exports = {
           paths.appIndexJs
       ],
       parasite: [require.resolve('./polyfills'),
-          './src/backend/messengerParasite.js'
+          './src/backend/messengerParasite.ts'
 
       ],
       tabManager: [require.resolve('./polyfills'),
-          './src/backend/tabManager.js'
+          './src/backend/tabManager.ts'
 
       ],
       util: [require.resolve('./polyfills'),
-          './src/backend/util.js',
+          './src/backend/util.ts',
 
       ],
       editMessenger: [require.resolve('./polyfills'),
-          './src/backend/editMessenger.js',
+          './src/backend/editMessenger.ts',
 
       ],
       background: [require.resolve('./polyfills'),
-          './src/backend/background.js',
+          './src/backend/background.ts',
       ]
   },
   output: {
@@ -112,7 +112,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', 'ts', 'tsx'],
     alias: {
       
       // Support React Native Web

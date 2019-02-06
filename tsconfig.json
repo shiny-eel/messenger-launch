@@ -1,0 +1,34 @@
+{
+  "include": [
+    "src",
+    "./typings.d.ts",
+    "types",
+    "test"
+  ],
+  "exclude": ["dist","src/index.js"],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "importHelpers": true,
+    "jsx": "react",
+    "lib": [
+      "es7",
+      "dom"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "compiled",
+    "removeComments": true,
+    "sourceMap": true,
+    "pretty": true,
+    "strict": true
+  }
+}
