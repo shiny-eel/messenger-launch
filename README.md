@@ -11,7 +11,7 @@ Mail is intended to be an efficient, lightweight add-on for those who use the [F
 - the handy drop-down extension window, OR
 - the power of the **Omnibox** (Chrome's address bar)
 
-![So speedy!](https://raw.githubusercontent.com/shiny-eel/messenger-launch/master/resources/messenger-demo.gif)
+![So speedy!](public/resources/messenger-demo.gif)
 
 #### Features
 - **ONE TAB**. If you have a Messenger tab open, Mail will use that. If you don't, it'll open one. (*And pin it too!*)
