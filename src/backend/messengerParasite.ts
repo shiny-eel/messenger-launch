@@ -55,13 +55,13 @@ function beginScript() {
 }
 
 function tryAddPeople(newTitles: string[], newUsernames: string[], callback?: () => any) {
-    sumPeople(newTitles, newUsernames, function (sumTitles, sumUnames, areNewPeople) {
-        if (areNewPeople) {
+    sumPeople(newTitles, newUsernames, function (sumTitles, sumUnames, _areNewPeople) {
+        // if (areNewPeople) {
             savePeople(sumTitles, sumUnames, function () {
                 // Tell the background script of new people
                 newPeopleUpdate();
             });
-        }
+        // }
         if (typeof callback === "function") {
             callback();
         }
@@ -79,15 +79,30 @@ function sumPeople(newTitles: string[], newUsernames: string[],
         for (let i = 0; i < newTitles.length; i++) {
             let uname = newUsernames[i];
             let title = newTitles[i]
-            if (!currentUsernames.includes(uname)) {
-                if (uname && title) {
+            if (uname && title) {
+
+                if (!currentUsernames.includes(uname)) {
                     // console.log("Adding a person.")
                     currentUsernames.push(uname);
                     currentTitles.push(title);
                     newPersonCounter++;
                     newPeople = true;
+                } else {
+                    // Remove the person
+                    // let cutUnames = currentUsernames.splice(currentUsernames.indexOf(uname));
+                    // let cutTitles = currentTitles.splice(currentTitles.indexOf(title));
+                    // currentTitles = cutTitles;
+                    // currentUsernames = cutUnames;
+                    // console.log(currentTitles)
+                    // // Add at front of list
+                    // currentUsernames.unshift(uname);
+                    // currentTitles.unshift(title);
+                    // console.log(currentTitles)
+
                 }
             }
+
+
         }
         console.log("Added " + newPersonCounter + " to " + people.length + " people.");
         if (typeof callback === "function") {

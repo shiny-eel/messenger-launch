@@ -2,8 +2,9 @@
 
 import React, {Component} from 'react';
 import './App.css';
-import {getNameFromURL, Person} from './backend/util'
+import {asSuggestion, getNameFromURL, Person, Suggestion} from './backend/util'
 
+// const logo = require("./logo.svg") as string;
 const logo = require('./logo.svg')
 
 interface State {
@@ -34,18 +35,22 @@ class App extends Component<any, State> {
 
     peopleList(people: Person[]) {
         console.log('HERE ARE THE PEOPLE IN THE FUNCTION', people)
-        const peopleArr = people
+        const peopleArr: Person[] = people
         if (!peopleArr || !peopleArr.length) return (null)
-        console.log('made it here');
-        const suggest = peopleArr[1].asSuggestion()
+        console.log('There are people available to display.',  peopleArr[1]);
+        const suggest: Suggestion = asSuggestion(peopleArr[1])
         console.log(suggest);
         const listItems = peopleArr.map((person: Person) =>
-            <li onClick={e => this.onItemClick(e)} data-id={person.asSuggestion().content}>{person.title}</li>
+            <li onClick={e => this.onItemClick(e)} data-id={asSuggestion(person).content}>
+                <div className="Person-item"><h2>{person.title}</h2></div>
+            </li>
         );
         return (
-            <ul>{listItems}</ul>
+            <ul className="Person-list">{listItems}</ul>
         );
     }
+
+
 
 
     render() {
@@ -58,7 +63,7 @@ class App extends Component<any, State> {
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
+                    <h1 className="App-title">M.A.I.L.</h1>
                 </header>
                 {this.peopleList(this.state.people)}
             </div>

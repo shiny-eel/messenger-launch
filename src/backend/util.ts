@@ -6,7 +6,7 @@ export const plainURL = "https://www.messenger.com/"
 export const USERNAME_KEY = "LIST OF PEOPLE";
 export const TITLE_KEY = "LIST OF TITLES";
 
-export const editMessengerFilePath = "static/js/editMessenger.ts";
+export const editMessengerFilePath = "./editMessenger.js";
 
 export class Person {
     title: string
@@ -24,7 +24,8 @@ export class Person {
     match(text: string) {
         const lowerText = text.toLowerCase();
         // let allNames = this.title.split("\\+s").push(this.username);
-        let allNames = this.title.split("\\s+");
+        let allNames: string[] = this.title.split("\\s+");
+        // console.log(log)
         // console.log("Allnames length ="+allNames.length+" "+allNames);
         for (let i = 0; i < allNames.length; i++) {
             if (allNames[i].toLowerCase().startsWith(lowerText))
@@ -46,6 +47,14 @@ export class Person {
     }
 }
 
+export function asSuggestion(p: Person): Suggestion {
+    let suggestion: Suggestion = {
+        content: fbMessengerURL.replace("*", "t/" + p.username),
+        description: p.title
+    };
+    return suggestion;
+}
+
 export interface Suggestion {
     content: string,
     description: string,
@@ -57,8 +66,7 @@ export function loadPeople(callback: (people: Person[], unames: string[], titles
 
     let allUsernames: string[];
     let allTitles: string[];
-    let people: Person[];
-
+    let people: Person[] = [];
     chrome.storage.sync.get(null, function (result) {
         // console.log('Current saved usernames are: ' + result[USERNAME_KEY]);
         if (!result[USERNAME_KEY] || !result[TITLE_KEY]) {
