@@ -17,7 +17,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.28.11",
     "file-loader": "^3.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "node-sass": "^4.13.1",
     "react-dev-utils": "^5.0.2",
     "resolve": "1.6.0",
