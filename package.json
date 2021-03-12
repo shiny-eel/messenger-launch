@@ -19,7 +19,7 @@
     "file-loader": "^3.0.1",
     "jquery": "^3.5.0",
     "node-sass": "^4.13.1",
-    "react-dev-utils": "^5.0.2",
+    "react-dev-utils": "^11.0.4",
     "resolve": "1.6.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
